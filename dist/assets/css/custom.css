@@ -1,0 +1,88 @@
+/* PLACE YOU CUSTOM STYLES IN THIS FILE */
+
+/*------------------------ ScrollBar ------------------------*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #171e22;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: rgba(235,73,39, 0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(235,73,39, 0.5);
+}
+/* ---------------------------------------------------------- */
+
+
+
+/* ----------------------- Sidebar -------------------------- */
+.nk-sidebar .nk-form-ajax textarea{
+    height: auto;
+}
+
+.nk-sidebar .nk-form-ajax input {
+    width: auto;
+}
+
+/* ---------------------------------------------------------- */
+
+
+
+
+/* -------------------- Page Accueil ----------------------- */
+
+.nk-blog-post {
+    background: #171e22;
+    border-radius: 10px;
+    padding: 12px 30px;
+    opacity: 0.9;
+    border: 2px solid #EB4927;
+}
+
+/* ---------------------------------------------------------- */
+
+
+
+
+/* -------------------- Page Contact ----------------------- */
+
+.nk-form-ajax textarea {
+    border: 1px solid #EB4927;
+    height: 200px;
+    resize: none;
+}
+
+.nk-form-ajax input  {
+    border: 1px solid #EB4927;
+    height: 40px;
+}
+
+.nk-form-ajax .nk-btn {
+    margin-top: 15px;
+    width: 30%;
+    margin-left: 32%;
+}
+
+/* ---------------------------------------------------------- */
+
+
+
+/* ---------------------- Page Wiki ------------------------- */
+
+.col-lg-4 h3:hover, .nk-gallery-item-box .nk-gallery-item-overlay, .nk-gallery-item-group .nk-gallery-item-overlay {
+    background-color: rgba(235,73,39, 0.75);
+}
+
+.col-lg-4 h3 {
+    margin-top: 5px;
+    text-align: center;
+    border: 0.5px solid;
+}
+
+/* ---------------------------------------------------------- */
