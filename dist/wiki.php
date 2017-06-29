@@ -17,7 +17,7 @@
                 </li>
 
                 <li>
-                    <span>Wiki Battlerite</span>
+                    <a href="wiki.php"><span>Wiki Battlerite</span></a>
                 </li>
 
             </ul>
@@ -31,348 +31,94 @@
         <div class="container">
             <div class="row equal-height vertical-gap">
                 <div class="col-lg-8">
+                    <!-- START: Search Form -->
+                    <form action="#" method="post" class="nk-form nk-form-style-1">
+                        <div class="input-group">
+                            <input type="text" name="s" class="form-control" placeholder="Rechercher...">
+                            <span class="nk-input-group-btn">
+                                <button class="nk-btn nk-btn-color-main-1">
+                                    <span class="fa fa-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- END: Search Form -->
+                    <div class="nk-gap-2"></div>
                     <!-- START: Latest Pictures -->
-                    <h2 class="nk-decorated-h-2 h3">
-                        <span>
-                            <span class="text-main-1">Ranged</span> Champions</span><div id="ranged"></div>
-                    </h2>
-                    <div class="nk-gap"></div>
-                    <div class="row vertical-gap multi-columns-row">
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Ashka">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
+
+                    <?php
+                    if (!isset($_POST['s'])) {
+                        $stmt = $con->prepare("SELECT DISTINCT classe_champion FROM wiki");
+                        $stmt->execute();
+
+                        while ($row = $stmt->fetch()) {
+                            echo "<h2 class=\"nk-decorated-h h3\">
+                                <span>
+                                <span class=\"text-main-1\">".$row["classe_champion"]."</span> Champions</span><div id=".$row["classe_champion"]."></div>
+                              </h2><div class=\"nk-gap\"></div>
+                        <div class=\"row vertical-gap multi-columns-row\">";
+
+
+                            $stmt2 = $con->prepare("SELECT nom_champion FROM wiki WHERE classe_champion ='".$row["classe_champion"]."'");
+                            $stmt2->execute();
+                            while($raw = $stmt2->fetch()){
+                                echo "<!-- DEBUT CHAMPION -->
+                        <div class=\"col-lg-4 col-md-6\">
+                            <div class=\"nk-gallery-item-box\">
+                                <a href=\"http://battlerite.gamepedia.com/".$raw["nom_champion"]."\">
+                                    <div class=\"nk-gallery-item-overlay\">
+                                        <span class=\"ion-information\"></span>
                                     </div>
-                                    <img src="assets/images/battlewiki/Ashka_Portrait.png" alt="">
+                                    <img src=\"assets/images/battlewiki/".$raw["nom_champion"]."_Portrait.png\" alt=".$raw["nom_champion"].">
                                 </a>
                             </div>
-                            <a href="http://battlerite.gamepedia.com/Ashka">
-                                <h3>Ashka</h3>
+                            <a href=\"http://battlerite.gamepedia.com/".$raw["nom_champion"]."\">
+                                <h3>".$raw["nom_champion"]."</h3>
                             </a>
                         </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Ezmo">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
+                        <!-- FIN CHAMPION -->";
+                            }
+                            echo "</div>";
+                        }
+                    }
+                    else {
+                        $stmt = $con->prepare("SELECT DISTINCT classe_champion FROM wiki WHERE nom_champion ='".$_POST['s']."'");
+                        $stmt->execute();
+                        while ($row = $stmt->fetch()) {
+                            echo "<h2 class=\"nk-decorated-h h3\">
+                                <span>
+                                <span class=\"text-main-1\">".$row["classe_champion"]."</span> Champions</span><div id=".$row["classe_champion"]."></div>
+                              </h2><div class=\"nk-gap\"></div>
+                        <div class=\"row vertical-gap multi-columns-row\">";
+
+
+                            $stmt2 = $con->prepare("SELECT nom_champion FROM wiki WHERE nom_champion ='".$_POST['s']."'");
+                            $stmt2->execute();
+                            while($raw = $stmt2->fetch()){
+                                echo "<!-- DEBUT CHAMPION -->
+                        <div class=\"col-lg-4 col-md-6\">
+                            <div class=\"nk-gallery-item-box\">
+                                <a href=\"http://battlerite.gamepedia.com/".$raw["nom_champion"]."\">
+                                    <div class=\"nk-gallery-item-overlay\">
+                                        <span class=\"ion-information\"></span>
                                     </div>
-                                    <img src="assets/images/battlewiki/Ezmo_Portrait.png" alt="">
+                                    <img src=\"assets/images/battlewiki/".$raw["nom_champion"]."_Portrait.png\" alt=".$raw["nom_champion"].">
                                 </a>
                             </div>
-                            <a href="http://battlerite.gamepedia.com/Ezmo">
-                                <h3>Ezmo</h3>
+                            <a href=\"http://battlerite.gamepedia.com/".$raw["nom_champion"]."\">
+                                <h3>".$raw["nom_champion"]."</h3>
                             </a>
                         </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Iva">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Iva_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Iva">
-                                <h3>Iva</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Jade">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Jade_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Jade">
-                                <h3>Jade</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Jumong">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Jumong_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Jumong">
-                                <h3>Jumong</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Taya">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Taya_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Taya">
-                                <h3>Taya</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Varesh">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Varesh_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Varesh">
-                                <h3>Varesh</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                    </div>
-                    <div class="nk-gap-2"></div>
-                    <h2 class="nk-decorated-h-2 h3">
-                        <span>
-                            <span class="text-main-1">Melee</span> Champions</span><div id="melee"></div>
-                    </h2>
-                    <div class="nk-gap"></div>
-                    <div class="row vertical-gap multi-columns-row">
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Bakko">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Bakko_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Bakko">
-                                <h3>Bakko</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Croak">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Croak_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Croak">
-                                <h3>Croak</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Freya">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Freya_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Freya">
-                                <h3>Freya</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Raigon">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Raigon_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Raigon">
-                                <h3>Raigon</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Rook">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Rook_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Rook">
-                                <h3>Rook</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Ruh Kaan">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Ruh_Kaan_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Ruh Kaan">
-                                <h3>Ruh Kaan</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Shifu">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Shifu_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Shifu">
-                                <h3>Shifu</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                    </div>
-                    <div class="nk-gap-2"></div>
-                    <h2 class="nk-decorated-h-2 h3">
-                        <span>
-                            <span class="text-main-1">Support</span> Champions</span><div id="support"></div>
-                    </h2>
-                    <div class="nk-gap"></div>
-                    <div class="row vertical-gap multi-columns-row">
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Blossom">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Blossom_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Blossom">
-                                <h3>Blossom</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Lucie">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Lucie_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Lucie">
-                                <h3>Lucie</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Oldur">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Oldur_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Oldur">
-                                <h3>Oldur</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Pearl">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Pearl_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Pearl">
-                                <h3>Pearl</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Pestilus">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Pestilus_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Pestilus">
-                                <h3>Pestilus</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Poloma">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Poloma_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Poloma">
-                                <h3>Poloma</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                        <!-- DEBUT CHAMPION -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="nk-gallery-item-box">
-                                <a href="http://battlerite.gamepedia.com/Sirius">
-                                    <div class="nk-gallery-item-overlay">
-                                        <span class="ion-information"></span>
-                                    </div>
-                                    <img src="assets/images/battlewiki/Sirius_Portrait.png" alt="">
-                                </a>
-                            </div>
-                            <a href="http://battlerite.gamepedia.com/Sirius">
-                                <h3>Sirius</h3>
-                            </a>
-                        </div>
-                        <!-- FIN CHAMPION -->
-                    </div>
+                        <!-- FIN CHAMPION -->";
+                            }
+                            echo "</div>";
+                        }
+                    }
+
+                    ?>
 
                     <!-- END: Latest Pictures -->
-s
+
                     <!-- START: Recent Galleries-->
 <!--                    <div class="nk-gap-2"></div>-->
 <!--                    <h2 class="nk-decorated-h-2 h3">-->
