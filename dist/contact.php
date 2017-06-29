@@ -69,4 +69,4 @@
                 -->
 <?php include "assets/include/sidebar.php" ?>
         <!-- START: Footer -->
-<?php include "assets/include/footer2.php" ?>
+<?php include "assets/include/footer.php" ?>

@@ -263,19 +263,19 @@ session_start();
                             <ul class="dropdown">
 
                                 <li>
-                                    <a href="wiki.php#ranged">
+                                    <a href="wiki.php#Ranged">
                                         Ranged
 
                                     </a>
                                 </li>
                                 <li class=" nk-drop-item">
-                                    <a href="wiki.php#melee">
+                                    <a href="wiki.php#Melee">
                                         Melee
 
                                     </a>
                                 </li>
                                 <li class=" nk-drop-item">
-                                    <a href="wiki.php#support">
+                                    <a href="wiki.php#Support">
                                         Support
 
             </a>
