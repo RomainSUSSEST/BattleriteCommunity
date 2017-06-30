@@ -75,7 +75,7 @@
                 <li><a href="profile.php?id=<?php echo $_SESSION['id']?>">Profil</a></li>
                 <?php if (isset($_SESSION['id']) AND $userinfo['rank'] == "admin") { ?>
                 <li>
-                    -<span class="fa fa-angle-right"></span>
+                    <span class="fa fa-angle-right"></span>
                 </li>
                 <li><a href="admin.php">Administration</a></li>
                 <?php }
@@ -83,78 +83,54 @@
                 <li>
                     <span><?php echo $userinfo['pseudo']?></span>
                 </li>
-
             </ul>
         </div>
         <div class="nk-gap-1"></div>
         <!-- END: Breadcrumbs -->
-
-
-
-
-        <div class="container">
-
-            <div class="nk-store nk-store-checkout">
-                <h3 class="nk-decorated-h-2">
-                    <span>
-                        <span class="text-main-1">Vos</span> Informations</span>
-                </h3>
-
-                <!-- START: Billing Details -->
-                <div class="nk-gap"></div>
-                <?php if (isset($_SESSION['id']) AND $_SESSION['rank'] == "admin") { ?>
+        <div class="container profil-container">
+            <div class="row equal-height vertical-gap profil-equal-height">
+                <div class="col-lg-8 profil-colg-lg-8">
+                    <div class="profil-en-tête">
+                    <?php if (isset($_SESSION['id']) AND $_SESSION['rank'] == "admin") { ?>
+                        <form method="POST" action="" class="nk-form">
+                            <input type="hidden" name="id_mute" value="<?php echo $getid ?>">
+                            <input type="submit" value="MUTE" class="nk-btn nk-btn-rounded nk-btn-color-main-1 nk-btn-hover-color-white profil-mute" name="form_mute">
+                        </form>
+                    <?php } ?>
+                        <h3>RANK - <span class="text-main-1">Battlerite</span> Community</h3>
+                    </div>
+                    <div class="image-rank">
+                        <img src="assets/images/<?php echo $userinfo['rank'] ?>.png" alt="rank" style="">
+                    </div>
                     <form method="POST" action="" class="nk-form">
-                        <div style="text-align: right;">
-                        <input type="hidden" name="id_mute" value="<?php echo $getid ?>">
-                            <input type="submit" value="MUTE" class="nk-btn nk-btn-rounded nk-btn-color-main-1 nk-btn-hover-color-white" name="form_mute">
-                        </div>
-                    </form>
-                <?php } ?>
-                <div style="text-align: center;">
-                    <h3>RANK - <span class="text-main-1">Battlerite</span> Community</h3>
-                    <img src="assets/images/<?php echo $userinfo['rank'] ?>.png" alt="rank">
-                </div>
-                <form method="POST" action="" class="nk-form">
-                    <div class="row vertical-gap">
-                        <div class="col-lg-6">
-                            <div class="row vertical-gap">
-                                <div class="col-sm-6">
-                                    <label for="pseudo">PSEUDO :</label>
-                                    <input type="text" class="form-control required" name="pseudo" id="pseudo" value="<?php echo $userinfo['pseudo'] ?>">
-                                </div>
-                            </div>
-                            <div class="nk-gap-1"></div>
-                                    <label for="email">EMAIL :</label>
-                                    <input type="email" class="form-control required" name="email" id="email" value="<?php echo $userinfo['mail'] ?>">
-                            <div class="nk-gap-1"></div>
-                                <label for="notes">Biographie: <small>(140 caractères)</small></label>
-                                <textarea class="form-control" name="bio" id="notes" placeholder="Bio ..." rows="6"><?php echo $userinfo['biographie'] ?></textarea>
-                                <div class="nk-gap-1"></div>
+                        <label for="pseudo">PSEUDO :</label>
+                        <input type="text" class="form-control required" name="pseudo" id="pseudo" value="<?php echo $userinfo['pseudo'] ?>">
+                        <div class="nk-gap-1"></div>
+                        <label for="email">EMAIL :</label>
+                        <input type="email" class="form-control required" name="email" id="email" value="<?php echo $userinfo['mail'] ?>">
+                        <div class="nk-gap-1"></div>
+                        <label for="notes">Biographie: <small>(140 caractères)</small></label>
+                        <textarea class="form-control" name="bio" id="notes" placeholder="Bio ..." rows="6"><?php echo $userinfo['biographie'] ?></textarea>
+                        <div class="nk-gap-1"></div>
                         <?php
                         if (isset($_SESSION['id']) AND $userinfo['id_utilisateur'] == $_SESSION['id'])
                         {
-                        ?>
+                            ?>
                             <input type="submit" value="METTRE A JOUR" class="nk-btn nk-btn-rounded nk-btn-color-main-1 nk-btn-hover-color-white" name="form_maj">
-                        <?php  
+                            <?php
                         }
                         ?>
-                </form>
-                <!-- END: Billing Details -->
-
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="nk-gap-2"></div>
-    </div>
-</div
-
-<?php 
+<?php
 }
 else
 {
-    
+
 }
 
 ?>
-
+<?php include "assets/include/sidebar.php" ?>
         <!-- START: Footer -->
 <?php include "assets/include/footer2.php" ?>

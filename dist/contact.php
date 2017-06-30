@@ -52,7 +52,7 @@
                         <div class="nk-gap-1"></div>
                         <button class="nk-btn nk-btn-rounded nk-btn-color-dark-3">
                             <span>Envoyer</span>
-                            <span class="icon"><i class="ion-paper-airplane"></i></span>
+                            <span class="icon"><i class="ion-alert"></i></span>
                         </button>
                         <div class="nk-form-response-success"></div>
                         <div class="nk-form-response-error"></div>

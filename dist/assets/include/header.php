@@ -255,6 +255,12 @@ session_start();
                                 </li>
                             </ul>
                         </li>
+            <li class="nk-drop-item">
+                <a href="stats.php">
+                    Mes Statistiques
+
+                </a>
+            </li>
                         <li class=" nk-drop-item">
                             <a href="wiki.php">
                 Battle Wiki

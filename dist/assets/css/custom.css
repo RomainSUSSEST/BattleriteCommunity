@@ -20,6 +20,13 @@
 /* ---------------------------------------------------------- */
 
 
+/*------------------------ Footer ------------------------*/
+
+.nk-footer {
+    opacity: 0.5;
+}
+
+/* ---------------------------------------------------------- */
 
 /* ----------------------- Sidebar -------------------------- */
 .nk-sidebar .nk-form-ajax textarea{
@@ -85,4 +92,34 @@
     border: 0.5px solid;
 }
 
+/* ---------------------------------------------------------- */
+
+/* ---------------------- Page Profil ------------------------- */
+
+.profil-container {
+    display: flex;
+}
+
+.profil-equal-height {
+    display: flex;
+    flex-basis: 72%;
+}
+
+.profil-colg-lg-8 {
+    flex-basis: 95%;
+}
+
+.image-rank {
+    display: flex;
+    justify-content: center;
+}
+
+.profil-en-tête {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.profil-en-tête h3 {
+    flex-basis: 90%;
+}
 /* ---------------------------------------------------------- */

@@ -160,7 +160,12 @@
                         <div class="nk-gap-1"></div>
                         <div class="row vertical-gap" style="text-align: center;">
                         <div class="col-md-12">
-                            <a href="profile.php?id=<?php echo $_SESSION['id'] ?>"><img src="assets/images/<?php echo $_SESSION['rank'] ?>.png" alt="rank" style="width: 150px; height: 150px;"></a>
+                            <a href="profile.php?id=<?php echo $_SESSION['id'] ?>">
+                                <img src="assets/images/<?php echo $_SESSION['rank'] ?>.png" alt="rank" style="width: 150px; height: 150px;">
+                                <div class="nk-gap-1"></div>
+                                <input type="submit" value="Mes détails" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block">
+                            </a>
+                            <div class="nk-gap-1"></div>
                             <a href="logout.php"><input type="submit" value="DECONNEXION" class="nk-btn nk-btn-rounded nk-btn-color-white nk-btn-block"></a>
                             <!-- video2 17-16 -->
                             </div>
