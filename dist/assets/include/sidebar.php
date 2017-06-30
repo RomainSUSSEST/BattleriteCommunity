@@ -1,4 +1,4 @@
-                    <aside class="nk-sidebar nk-sidebar-right nk-sidebar-sticky">
+                    <aside class="nk-sidebar nk-sidebar-right">
                         <div class="nk-widget nk-widget-highlighted">
                             <h4 class="nk-widget-title">
                                 <span>
